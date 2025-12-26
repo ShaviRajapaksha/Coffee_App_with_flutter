@@ -16,10 +16,10 @@ class WelcomePage extends StatelessWidget {
           ),
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
+          // crossAxisAlignment: CrossAxisAlignment.center,
+          // mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: 120),
+            SizedBox(height: 152),
             ClipRRect(
               borderRadius: BorderRadius.circular(50),
               child: Image.asset(
@@ -29,12 +29,13 @@ class WelcomePage extends StatelessWidget {
                 fit: BoxFit.contain,
               ),
             ),
+            SizedBox(height: 50),
             Text(
               "Find your Favorite",
               style: TextStyle(
                 fontSize: 30,
                 fontFamily: GoogleFonts.poppins().fontFamily,
-                color: Colors.white,
+                color: const Color(0xFF9a7558),
                 fontWeight: FontWeight.bold,
               ),
             ),
