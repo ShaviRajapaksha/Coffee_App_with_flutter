@@ -1,193 +1,114 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SigninPage extends StatefulWidget {
+class SigninPage extends StatelessWidget {
   const SigninPage({super.key});
-
-  @override
-  State<SigninPage> createState() => _SigninPageState();
-}
-
-class _SigninPageState extends State<SigninPage> {
-  bool _obscurePassword = true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          /// Background Image
-          Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/background.jpeg'),
-                fit: BoxFit.cover,
-              ),
+      body: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: const AssetImage('assets/background.jpeg'),
+            fit: BoxFit.cover,
+            colorFilter: ColorFilter.mode(
+              Colors.black.withOpacity(0.2),
+              BlendMode.darken,
             ),
           ),
+        ),
+        child: SafeArea(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(vertical: 40),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const SizedBox(height: 40),
 
-          /// Dark Overlay
-          Container(color: Colors.black.withOpacity(0.35)),
+                /// Logo
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(75),
+                  child: Image.asset(
+                    'assets/logo.jpg',
+                    width: 150,
+                    height: 150,
+                    fit: BoxFit.cover,
+                  ),
+                ),
 
-          /// Content
-          SafeArea(
-            child: Center(
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(28),
-                  child: BackdropFilter(
-                    filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
-                    child: Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.all(28),
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.18),
-                        borderRadius: BorderRadius.circular(28),
-                        border: Border.all(
-                          color: Colors.white.withOpacity(0.3),
-                        ),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          /// Logo
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(60),
-                            child: Image.asset(
-                              'assets/logo.jpg',
-                              width: 120,
-                              height: 120,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
+                const SizedBox(height: 20),
 
-                          const SizedBox(height: 20),
+                /// Title
+                Text(
+                  'Sign In',
+                  style: GoogleFonts.poppins(
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                    color: const Color(0xFF5F3C26),
+                  ),
+                ),
 
-                          /// Title
-                          Text(
-                            'Welcome Back',
-                            style: GoogleFonts.poppins(
-                              fontSize: 30,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white,
-                            ),
-                          ),
+                const SizedBox(height: 16),
 
-                          const SizedBox(height: 6),
+                /// Subtitle
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 40),
+                  child: Text(
+                    'Please sign in to your account.',
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.poppins(
+                      fontSize: 18,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
 
-                          /// Subtitle
-                          Text(
-                            'Sign in to continue',
-                            style: GoogleFonts.poppins(
-                              fontSize: 16,
-                              color: Colors.white70,
-                            ),
-                          ),
+                const SizedBox(height: 30),
 
-                          const SizedBox(height: 28),
-
-                          /// Phone Field
-                          _glassTextField(
-                            hint: 'Phone Number',
-                            icon: Icons.phone,
-                            keyboardType: TextInputType.phone,
-                          ),
-
-                          const SizedBox(height: 16),
-
-                          /// Password Field
-                          _glassTextField(
-                            hint: 'Password',
-                            icon: Icons.lock,
-                            obscureText: _obscurePassword,
-                            suffixIcon: IconButton(
-                              icon: Icon(
-                                _obscurePassword
-                                    ? Icons.visibility_off
-                                    : Icons.visibility,
-                                color: Colors.white70,
-                              ),
-                              onPressed: () {
-                                setState(() {
-                                  _obscurePassword = !_obscurePassword;
-                                });
-                              },
-                            ),
-                          ),
-
-                          const SizedBox(height: 24),
-
-                          /// Sign In Button
-                          SizedBox(
-                            width: double.infinity,
-                            height: 55,
-                            child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(0xFF5F3C26),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(16),
-                                ),
-                                elevation: 6,
-                              ),
-                              onPressed: () {},
-                              child: Text(
-                                'Sign In',
-                                style: GoogleFonts.poppins(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                          ),
-
-                          const SizedBox(height: 16),
-
-                          /// Footer
-                          TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              'Forgot Password?',
-                              style: GoogleFonts.poppins(color: Colors.white70),
-                            ),
-                          ),
-                        ],
+                /// Phone Number Field
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: TextField(
+                    keyboardType: TextInputType.phone,
+                    decoration: InputDecoration(
+                      hintText: 'Enter your phone number',
+                      prefixIcon: const Icon(Icons.phone),
+                      filled: true,
+                      fillColor: Colors.white.withOpacity(0.85),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide.none,
                       ),
                     ),
                   ),
                 ),
-              ),
+
+                const SizedBox(height: 20),
+
+                /// Password Field
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: TextField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      hintText: 'Enter your password',
+                      prefixIcon: const Icon(Icons.lock),
+                      filled: true,
+                      fillColor: Colors.white.withOpacity(0.85),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide.none,
+                      ),
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 30),
+              ],
             ),
           ),
-        ],
-      ),
-    );
-  }
-
-  /// Glass TextField Widget
-  Widget _glassTextField({
-    required String hint,
-    required IconData icon,
-    TextInputType keyboardType = TextInputType.text,
-    bool obscureText = false,
-    Widget? suffixIcon,
-  }) {
-    return TextField(
-      keyboardType: keyboardType,
-      obscureText: obscureText,
-      style: const TextStyle(color: Colors.white),
-      decoration: InputDecoration(
-        hintText: hint,
-        hintStyle: const TextStyle(color: Colors.white70),
-        prefixIcon: Icon(icon, color: Colors.white70),
-        suffixIcon: suffixIcon,
-        filled: true,
-        fillColor: Colors.white.withOpacity(0.15),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16),
-          borderSide: BorderSide.none,
         ),
       ),
     );
