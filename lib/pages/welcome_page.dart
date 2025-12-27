@@ -20,17 +20,17 @@ class WelcomePage extends StatelessWidget {
           // crossAxisAlignment: CrossAxisAlignment.center,
           // mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: 152),
+            SizedBox(height: 220),
             ClipRRect(
-              borderRadius: BorderRadius.circular(50),
+              borderRadius: BorderRadius.circular(80),
               child: Image.asset(
                 'assets/logo.jpg',
-                width: 100,
-                height: 100,
+                width: 120,
+                height: 120,
                 fit: BoxFit.contain,
               ),
             ),
-            SizedBox(height: 50),
+            SizedBox(height: 70),
             Text(
               "Find your Favorite",
               style: TextStyle(
