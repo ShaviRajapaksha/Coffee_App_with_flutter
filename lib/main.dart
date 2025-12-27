@@ -1,3 +1,4 @@
+import 'package:coffee_app_with_flutter/pages/signin_page.dart';
 import 'package:coffee_app_with_flutter/pages/welcome_page.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: const WelcomePage(),
+      //home: const SigninPage(),
     );
   }
 }
