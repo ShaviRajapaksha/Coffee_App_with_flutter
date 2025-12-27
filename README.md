@@ -1,10 +1,18 @@
-# coffee_app_with_flutter
 
 A new Flutter project.
 
-## Getting Started
+## Screenshots
+<table>
+ <tr>
+ <td>
+<img width="1080" height="2400" alt="Screenshot_1766863908" src="https://github.com/user-attachments/assets/93bee9fc-8dee-4cd1-9aa3-85afa52ee8f1" />
+ </td>
+  <td>
+<img width="1080" height="2400" alt="Screenshot_1766863964" src="https://github.com/user-attachments/assets/589fd72b-4727-4a98-948e-a632971ee6a3" />
+ </td>
+ </tr>
+</table>
 
-This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
 
