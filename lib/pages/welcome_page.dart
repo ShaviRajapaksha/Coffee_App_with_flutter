@@ -1,3 +1,4 @@
+import 'package:coffee_app_with_flutter/pages/signin_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -76,7 +77,12 @@ class WelcomePage extends StatelessWidget {
                     vertical: 15,
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const SigninPage()),
+                  );
+                },
                 child: Center(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
